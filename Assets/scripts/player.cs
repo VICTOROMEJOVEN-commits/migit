@@ -1,5 +1,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;    
 
 public class player : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class player : MonoBehaviour
     public float jumpForce = 300f;
     public Rigidbody rb;
     public int itemCollected = 0;
+    public TextMeshProUGUI CollectedItemsText;
 
     void Start()
     {
@@ -52,5 +55,10 @@ public class player : MonoBehaviour
             Debug.Log("Collision detected with item: " + collision.gameObject.name);
             Destroy(collision.gameObject);
         }
+    }
+    public void CollectItem()
+    {
+        itemCollected++;
+        Debug.Log("Item collected! Total items: " + itemCollected);
     }
 }

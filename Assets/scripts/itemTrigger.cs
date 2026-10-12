@@ -20,7 +20,8 @@ public class itemTrigger : MonoBehaviour
             Debug.Log("Trigger detected with: " + other.gameObject.name);
             Destroy(gameObject);
             Player= other.GetComponent<player>();
-            Player.itemCollected++;
+            Player.CollectItem();       
+
         }
     }
 }
