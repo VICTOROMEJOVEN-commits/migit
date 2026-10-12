@@ -23,24 +23,20 @@ public class player : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.W))
         {
-            AddplayerForce(new Vector3(0, 0, speed));
+            rb.AddForce(new Vector3(0, 0, speed));
         }
         if (Input.GetKey(KeyCode.S))
         {
-            AddplayerForce(new Vector3(0, 0, -speed));
+            rb.AddForce(new Vector3(0, 0, -speed));
         }
         if (Input.GetKey(KeyCode.A))
         {
-            AddplayerForce(new Vector3(-speed, 0, 0));
+            rb.AddForce(new Vector3(-speed, 0, 0));
         }
         if (Input.GetKey(KeyCode.D))
         {
-            AddplayerForce(new Vector3(speed, 0, 0));
+            rb.AddForce(new Vector3(speed, 0, 0));
         }
-    }
-    private void AddplayerForce(Vector3 force)
-    {
-        rb.AddForce(force, ForceMode.Impulse);
     }
     private void OnCollisionEnter(Collision collision)
     {
