@@ -46,5 +46,10 @@ public class player : MonoBehaviour
         {
             canJump = true;
         }
+        if (collision.gameObject.CompareTag("item"))
+        {
+            Debug.Log("Collision detected with item: " + collision.gameObject.name);
+            Destroy(collision.gameObject);
+        }
     }
 }
