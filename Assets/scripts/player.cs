@@ -7,6 +7,7 @@ public class player : MonoBehaviour
     public float speed = 5f;
     public float jumpForce = 300f;
     public Rigidbody rb;
+    public int itemCollected = 0;
 
     void Start()
     {
