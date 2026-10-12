@@ -10,11 +10,15 @@ public class player : MonoBehaviour
     public float jumpForce = 300f;
     public Rigidbody rb;
     public int itemCollected = 0;
+    public int totalItems = 0;
     public TextMeshProUGUI CollectedItemsText;
+    public GameObject PanelWin;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        totalItems = GameObject.FindGameObjectsWithTag("item").Length;
+        PanelWin.SetActive(false);
     }
 
 
@@ -60,5 +64,11 @@ public class player : MonoBehaviour
     {
         itemCollected++;
         Debug.Log("Item collected! Total items: " + itemCollected);
+        CollectedItemsText.text = "Items Collected: " + itemCollected + "/" + totalItems;
+        if (itemCollected >= totalItems)
+        {
+            Debug.Log("All items collected!");
+            PanelWin.SetActive(true);
+        }
     }
 }
